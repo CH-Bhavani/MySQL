@@ -163,5 +163,37 @@ where employee_id not in (select employee_id from Employees)
 order by employee_id;
 
 
+Write an SQL query to find the employees who earn more than their managers.
+
+Return the result table in any order.
+
+The query result format is in the following example.
+
+ 
+
+Example 1:
+
+Input: 
+Employee table:
++----+-------+--------+-----------+
+| id | name  | salary | managerId |
++----+-------+--------+-----------+
+| 1  | Joe   | 70000  | 3         |
+| 2  | Henry | 80000  | 4         |
+| 3  | Sam   | 60000  | Null      |
+| 4  | Max   | 90000  | Null      |
++----+-------+--------+-----------+
+Output: 
++----------+
+| Employee |
++----------+
+| Joe      |
++----------+
+Explanation: Joe is the only employee who earns more than his manager.
+
+# Write your MySQL query statement below
+select e1.name as Employee from employee e1 ,employee e2 where e1.managerid=e2.id and e1.salary>e2.salary;
+
+
 
 
