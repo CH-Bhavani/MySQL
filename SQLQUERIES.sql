@@ -196,4 +196,37 @@ select e1.name as Employee from employee e1 ,employee e2 where e1.managerid=e2.i
 
 
 
+Write an SQL query to report all the duplicate emails.
+
+Return the result table in any order.
+
+The query result format is in the following example.
+
+ 
+
+Example 1:
+
+Input: 
+Person table:
++----+---------+
+| id | email   |
++----+---------+
+| 1  | a@b.com |
+| 2  | c@d.com |
+| 3  | a@b.com |
++----+---------+
+Output: 
++---------+
+| Email   |
++---------+
+| a@b.com |
++---------+
+Explanation: a@b.com is repeated two times.
+
+
+sol-1
+# Write your MySQL query statement below
+select distinct(p1.email) as Email from person p1,person p2 where p1.email=p2.email && p1.id!=p2.id;
+or
+select email from person  group by email having count(email)>1;
 
