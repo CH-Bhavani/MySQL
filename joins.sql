@@ -146,7 +146,7 @@ on Person.PersonId = Address.PersonId
 
 
 # Write your MySQL query statement below
-#select c.name as Customers from Customers c where c.id not in (select o.customerId from #Orders O);
-
-select c.name as Customers  from Customers c left join orders o on c.id=o.customerId 
-where o.customerId is null;
+select FirstName, LastName, City, State
+from Person left join Address
+on Person.PersonId = Address.PersonId
+;
